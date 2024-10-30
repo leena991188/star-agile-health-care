@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: healthcare-webapp
-          image: leenab88/healthcare-webapp:latest  # Specify the version if needed
+          image: leenab88/healthcare-webapp:<IMAGE_TAG>  # Specify the version if needed
           imagePullPolicy: Always
           ports:
             - containerPort: 8082 # Port that the container listens on
