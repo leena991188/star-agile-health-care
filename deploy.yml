@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: healthcare-webapp
-  namespace: {{NAMESPACE}}  # Placeholder for the namespace
+  namespace: dev  # Placeholder for the namespace
   labels:
     app: healthcare-webapp
 spec:
