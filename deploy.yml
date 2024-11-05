@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthcare-webapp
+  labels:
+    app: healthcare-webapp
+spec:
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: healthcare-webapp
+  template:
+    metadata:
+      labels:
+        app: healthcare-webapp
+    spec:
+      containers:
+        - name: healthcare-webapp
+          image: leenab88/healthcare-webapp:6  # Specify the version if needed
+          resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082 # Port that the container listens on
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: healthcare-webapp-service
+spec:
+  type: NodePort  # Expose the service using NodePort
+  selector:
+    app: healthcare-webapp
+  ports:
+    - port: 8082          # Port that the service listens on
+      targetPort: 8082    # Port to forward to the container
+      nodePort: 30080    # Choose a port between 30000-32767 for NodePort
