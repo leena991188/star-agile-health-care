@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: healthcare-webapp
-          image: leenab88/healthcare-webapp:<IMAGE_TAG>  # Specify the version if needed
+          image: leenab88/healthcare-webapp:v.<IMAGE_TAG>  # Specify the version if needed
           resources:
             requests:
               memory: "256Mi"
