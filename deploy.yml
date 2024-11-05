@@ -18,16 +18,15 @@ spec:
         - name: healthcare-webapp
           image: leenab88/healthcare-webapp:6  # Specify the version if needed
           resources:
-          requests:
-            memory: "256Mi"
-            cpu: "250m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
           imagePullPolicy: Always
           ports:
             - containerPort: 8082 # Port that the container listens on
-
 ---
 apiVersion: v1
 kind: Service
@@ -41,3 +40,4 @@ spec:
     - port: 8082          # Port that the service listens on
       targetPort: 8082    # Port to forward to the container
       nodePort: 30080    # Choose a port between 30000-32767 for NodePort
+
