@@ -10,4 +10,4 @@ spec:
   ports:
     - port: 8082          # Port that the service listens on
       targetPort: 8082    # Port to forward to the container
-      nodePort: 30088    # Choose a port between 30000-32767 for NodePort
+      nodePort: 30089    # Choose a port between 30000-32767 for NodePort
