@@ -1,5 +1,7 @@
 - name : Configure Docker on EC2 Instances
   hosts : localhost
+  vars:
+    image_tag: "{{ lookup('env', 'IMAGE_TAG') }}"
   become: true
   connection : ssh
   tasks : 
@@ -17,4 +19,4 @@
     become_user : root
 
   - name: Deploy Docker Container
-    command: docker run -itd -p 8084:8082 leenab88/medicure:1.0
+    command: docker run -itd -p 8084:8082 leenab88/healthcare-webapp:v.{{ image_tag }}
